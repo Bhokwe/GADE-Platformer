@@ -6,18 +6,28 @@ public class PlayerController : MonoBehaviour
     // reference for the player's inptu action and movement
     PlayerInput playerInput;
     InputAction moveAction;
+    InputAction jumpAction;
+    Rigidbody rb;
 
-    // the speed at which the player moves
+
+
+    // the settings for the players movement mechanics
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
+    public float moveSpeed;
+
+    [Header("Jump Settings")]
+    public float jumpForce; 
+
 
     
-   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
+        jumpAction = playerInput.actions.FindAction("Jump");
 
     }
 
@@ -25,6 +35,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+
+        if (jumpAction.WasPressedThisFrame())
+        {
+            Jump();
+        }
     }
 
     void PlayerMovement()
@@ -33,5 +48,11 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = moveAction.ReadValue<Vector2>();
         transform.position += new Vector3(direction.x, 0, direction.y) * moveSpeed * Time.deltaTime;
 
+    }
+
+    void Jump()
+    {
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z); // reset the y velocity to ensure consistent jump height
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 }
