@@ -23,7 +23,7 @@ public class SimpleMover : MonoBehaviour
     {
         if (shouldMove)
         {
-            float moveFactor = mathf.PingPong(Time.time * moveSpeed, 1f);
+            float moveFactor = Mathf.PingPong(Time.time * moveSpeed, 1f);
             transform.position = Vector3.Lerp(startPos, startPos + moveDistance, moveFactor);
         }
         if (shouldRotate)
