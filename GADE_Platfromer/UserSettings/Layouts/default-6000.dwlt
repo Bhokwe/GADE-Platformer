@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 67
+  controlID: 43
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 112}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 68
+  controlID: 44
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 69
+  controlID: 45
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 385.6
     height: 516.8
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -273,8 +273,8 @@ MonoBehaviour:
     y: 0
     width: 361.59998
     height: 716.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -692,20 +692,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_Data: 19816
+      m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -18978
-      - m_Data: -18782
-      - m_Data: -13984
-      - m_Data: -4868
-      - m_Data: -1382
+      - m_Data: -52476
+      - m_Data: -48524
+      - m_Data: -48190
+      - m_Data: -45908
+      - m_Data: -39530
+      - m_Data: -38928
+      - m_Data: -4108
+      - m_Data: -3500
+      - m_Data: -1324
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Player
-        m_OriginalName: Player
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
@@ -713,10 +716,10 @@ MonoBehaviour:
           width: 0
           height: 0
         m_UserData:
-          m_Data: -13986
+          m_Data: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 8}
@@ -1364,9 +1367,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -0.74776214, y: 7.885238, z: -24.517466}
+    m_Target: {x: -15.493458, y: 12.029071, z: -23.779652}
     speed: 2
-    m_Value: {x: -0.74776214, y: 7.885238, z: -24.517466}
+    m_Value: {x: -15.493458, y: 12.029071, z: -23.779652}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1412,13 +1415,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.032289892, y: -0.080271356, z: 0.002601518, w: 0.9962491}
+    m_Target: {x: 0.08692641, y: -0.50125116, z: 0.05069691, w: 0.85943556}
     speed: 2
-    m_Value: {x: 0.03228981, y: -0.080271155, z: 0.0026015115, w: 0.9962466}
+    m_Value: {x: 0.086926036, y: -0.501249, z: 0.050696693, w: 0.85943186}
   m_Size:
-    m_Target: 9.450705
+    m_Target: 4.669467
     speed: 2
-    m_Value: 9.450705
+    m_Value: 4.669467
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1556,7 +1559,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Game/Scripts/Platforms
+    - Assets/_Game/Prefab
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1566,7 +1569,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 62
   m_LastFolders:
-  - Assets/_Game/Scripts/Platforms
+  - Assets/_Game/Prefab
   m_LastFoldersGridSize: 62
   m_LastProjectPath: C:\Users\latit\Documents\Game Development\Semester 5\Assignments\Part
     1\GADE-Platformer\GADE_Platfromer
@@ -1574,26 +1577,26 @@ MonoBehaviour:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 154}
+    scrollPos: {x: 0, y: 94}
     m_SelectedIDs:
-    - m_Data: 48908
+    - m_Data: 48412
     m_LastClickedID:
-      m_Data: 48908
+      m_Data: 48412
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 48402
-    - m_Data: 48404
-    - m_Data: 48406
-    - m_Data: 48408
-    - m_Data: 48410
-    - m_Data: 48412
-    - m_Data: 48414
-    - m_Data: 48416
-    - m_Data: 48418
-    - m_Data: 48420
-    - m_Data: 48422
-    - m_Data: 48424
-    - m_Data: 48426
+    - m_Data: 48078
+    - m_Data: 48080
+    - m_Data: 48082
+    - m_Data: 48084
+    - m_Data: 48086
+    - m_Data: 48088
+    - m_Data: 48090
+    - m_Data: 48092
+    - m_Data: 48094
+    - m_Data: 48096
+    - m_Data: 48098
+    - m_Data: 48100
+    - m_Data: 48102
     - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1627,19 +1630,19 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 48402
-    - m_Data: 48404
-    - m_Data: 48406
-    - m_Data: 48408
-    - m_Data: 48410
-    - m_Data: 48412
-    - m_Data: 48414
-    - m_Data: 48416
-    - m_Data: 48418
-    - m_Data: 48420
-    - m_Data: 48422
-    - m_Data: 48424
-    - m_Data: 48426
+    - m_Data: 48078
+    - m_Data: 48080
+    - m_Data: 48082
+    - m_Data: 48084
+    - m_Data: 48086
+    - m_Data: 48088
+    - m_Data: 48090
+    - m_Data: 48092
+    - m_Data: 48094
+    - m_Data: 48096
+    - m_Data: 48098
+    - m_Data: 48100
+    - m_Data: 48102
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1666,9 +1669,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: 19816
-    m_LastClickedInstanceID: 19816
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 21666
@@ -1784,7 +1786,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 756
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

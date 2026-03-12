@@ -3,12 +3,14 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
+
 public class PlayerController : MonoBehaviour
 {
     // reference for the player's inptu action and movement
     PlayerInput playerInput;
     InputAction moveAction;
     InputAction jumpAction;
+    InputAction lookAction;
     Rigidbody rb;
 
 
@@ -26,12 +28,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;  //the layer for the ground objects
     public bool isGrounded; // this will be used to check if the player is on the ground before allowing them to jump
 
-    [Header("Camera Ref")]
-    public Transform mainCam;
+    //because we changed to a TP camera, we do not need this for now. 
+    //[Header("Camera Ref")]
+    //public Transform mainCam;
 
-    [Header("Rotation Settings")]
-    public float turnSmoothTime; //how fast the player rotates
-    float turnSmoothVelocity; // smoothen the rotation 
+    [Header("Look Settings")]
+    public float mouseSens = 20f; //mouse sensitivity for looking around
+    public Transform cameraTarget; //slot for the cameraTarget empty in the player
+    float xRotation = 0f; //up&down tilt of the camera
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,9 +45,14 @@ public class PlayerController : MonoBehaviour
         //getting the components 
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
-        //the move and jump actions found in the IA asset
+        //the move, jump and look actions found in the IA asset
         moveAction = playerInput.actions.FindAction("Move");
         jumpAction = playerInput.actions.FindAction("Jump");
+        lookAction = playerInput.actions.FindAction("Look");
+
+        //locking of cursor
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
 
     }
 
@@ -51,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         // checks if the player is on the ground by checking for collisions with the ground layer
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); 
+        PlayerLook();
         PlayerMovement();
 
 
@@ -65,30 +76,20 @@ public class PlayerController : MonoBehaviour
     {
         //reading the raw input
         Vector2 inputDirection = moveAction.ReadValue<Vector2>();
-        //converting it to a 3D direction vector
-        Vector3 direction = new Vector3(inputDirection.x, 0, inputDirection.y).normalized;
+     
+        Vector3 moveDirection = (transform.forward*inputDirection.y + transform.right * inputDirection.x).normalized;
 
-        //Vector2 direction = moveAction.ReadValue<Vector2>(); switch back to it if something breaks
-        transform.position += new Vector3(direction.x, 0, direction.y) * moveSpeed * Time.deltaTime;
 
         //rotate only when the player is inputting that direction
-        if (direction.magnitude>=0.1f)
+        if (inputDirection.magnitude>=0.1f)
         {
-            //eyy this math bro but anyway, this calculates the anle the character needs to face
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
-
-            //eases the current rotation smoothly towards the target angle
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            //applies the rotation to the player
-            transform.rotation = Quaternion.Euler(0, angle, 0);
-
-            Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, moveDirection.z * moveSpeed);
 
 
-            //changes forward to the new input direction
-            transform.position += moveDirection.normalized * moveSpeed * Time.deltaTime;
-
-
+        }
+        else
+        {
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         }
 
     }
@@ -97,5 +98,17 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z); // reset the y velocity to ensure consistent jump height
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void PlayerLook()
+    {
+        Vector2 lookInput = lookAction.ReadValue<Vector2>();
+
+        transform.Rotate(Vector3.up * lookInput.x * mouseSens * Time.deltaTime);
+
+        xRotation -= lookInput.y * mouseSens * Time.deltaTime;
+
+        xRotation = Mathf.Clamp(xRotation, -70f, 70f);
+        cameraTarget.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
 }
