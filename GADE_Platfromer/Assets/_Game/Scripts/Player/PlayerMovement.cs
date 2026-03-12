@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction jumpAction;
     InputAction lookAction;
+    InputAction dashAction;
     Rigidbody rb;
 
 
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump Settings")]
     public float jumpForce; //how much force is applied when the player jumps
+    bool canDoubleJump; // can the player double jump?
 
     [Header("Ground Check Settings")]
     public Transform groundCheck; // to see if the player is on the ground
@@ -28,9 +30,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;  //the layer for the ground objects
     public bool isGrounded; // this will be used to check if the player is on the ground before allowing them to jump
 
-    //because we changed to a TP camera, we do not need this for now. 
-    //[Header("Camera Ref")]
-    //public Transform mainCam;
+    [Header("Dash Settings")]
+    public float dashForce;
+    public float dashDuration;
+    public float dashCooldown;
+    bool isDashing;
+    float dashTimeTracker;
+    float dashCooldownTracker;
 
     [Header("Look Settings")]
     public float mouseSens = 20f; //mouse sensitivity for looking around
@@ -49,6 +55,7 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions.FindAction("Move");
         jumpAction = playerInput.actions.FindAction("Jump");
         lookAction = playerInput.actions.FindAction("Look");
+        dashAction = playerInput.actions.FindAction("Dash");
 
         //locking of cursor
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
@@ -62,13 +69,52 @@ public class PlayerController : MonoBehaviour
         // checks if the player is on the ground by checking for collisions with the ground layer
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); 
         PlayerLook();
-        PlayerMovement();
+        //PlayerMovement();
 
+
+        if (isGrounded && !isDashing)
+        {
+            canDoubleJump = true; //reset double jump when the player is grounded again
+        }
+        //start counting down the dash timer
+        if (dashCooldownTracker > 0) dashCooldownTracker -= Time.deltaTime;
+
+        //Tick down the active dash timer and end the dash after  the time is up
+        if (isDashing) 
+        {
+            dashTimeTracker -= Time.deltaTime;
+            if (dashTimeTracker <= 0)
+            {
+                isDashing = false;//dash is over
+            }
+        
+        }
+        if (!isDashing) 
+        {
+            PlayerMovement();
+        }
+        //Dash trigger
+        if (dashAction != null && dashAction.WasPressedThisFrame() && dashCooldownTracker <= 0&& !isDashing) 
+        {
+            StartDash();
+        }
+
+        
 
         //when jump is pressed and the player is grounded, the player wil jump
-        if (jumpAction.WasPressedThisFrame() && isGrounded)
+        if (jumpAction.WasPressedThisFrame())
         {
-            Jump();
+            if (isGrounded)
+            {
+                Jump();
+            }
+            else if (canDoubleJump) 
+            { 
+                Jump();
+                canDoubleJump = false; //prevents the player from jumping into oblivion
+            }
+
+            
         }
     }
 
@@ -108,7 +154,27 @@ public class PlayerController : MonoBehaviour
 
         xRotation -= lookInput.y * mouseSens * Time.deltaTime;
 
-        xRotation = Mathf.Clamp(xRotation, -70f, 70f);
+        xRotation = Mathf.Clamp(xRotation, -20f, 20f);
         cameraTarget.localRotation = Quaternion.Euler(xRotation, 0, 0);
+    }
+
+    void StartDash()
+    {
+        isDashing = true;
+        dashTimeTracker = dashDuration;
+        dashCooldownTracker = dashCooldown;
+
+        // Figure out which way the player is currently trying to move
+        Vector2 inputDirection = moveAction.ReadValue<Vector2>();
+        Vector3 dashDirection = (transform.forward * inputDirection.y + transform.right * inputDirection.x).normalized;
+
+        // If they aren't pressing any keys, default to dashing straight forward
+        if (dashDirection == Vector3.zero)
+        {
+            dashDirection = transform.forward;
+        }
+
+        // Force a massive burst of speed, zeroing out the Y velocity so the dash shoots perfectly straight
+        rb.linearVelocity = new Vector3(dashDirection.x * dashForce, 0f, dashDirection.z * dashForce);
     }
 }

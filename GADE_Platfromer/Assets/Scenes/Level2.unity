@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -310,6 +314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Column_Square_01_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 3278727813687948964, guid: 964c782eb89b8ff4586065cfca58648c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -431,6 +439,10 @@ PrefabInstance:
     - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -731,6 +743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Rock_02_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 1955393404171798840, guid: 9537ed078bdaa7e409f5d3eaa9c32f80, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -947,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4712324
@@ -1008,6 +1028,10 @@ PrefabInstance:
     - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1141,6 +1165,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_02_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 5167333816591036236, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5547834505944233462, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -1231,6 +1259,10 @@ PrefabInstance:
     - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1412,6 +1444,10 @@ PrefabInstance:
     - target: {fileID: 3278727813687948964, guid: 964c782eb89b8ff4586065cfca58648c, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Column_Square_01_Atlased (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278727813687948964, guid: 964c782eb89b8ff4586065cfca58648c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1918,7 +1954,7 @@ Transform:
   m_GameObject: {fileID: 1155577610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.71, y: 11.349999, z: -28.73}
+  m_LocalPosition: {x: -16.41, y: 11.3375, z: -28.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2081,6 +2117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.0600004
@@ -2142,6 +2182,10 @@ PrefabInstance:
     - target: {fileID: 8184701373135732306, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_01_Atlased (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184701373135732306, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8853573446925837544, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2319,6 +2363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_02_Atlased (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5167333816591036236, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5547834505944233462, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2657
@@ -2392,6 +2440,10 @@ PrefabInstance:
     - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2653,6 +2705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_01_Atlased (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8184701373135732306, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8853573446925837544, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.214214
@@ -2772,6 +2828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_02_Atlased (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5167333816591036236, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5547834505944233462, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2657
@@ -2856,11 +2916,11 @@ PrefabInstance:
       objectReference: {fileID: 1277469668}
     - target: {fileID: 5939789135932621384, guid: 4cb86a6e7abfdb64d977ace2c2d18efe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.71
+      value: -16.41
       objectReference: {fileID: 0}
     - target: {fileID: 5939789135932621384, guid: 4cb86a6e7abfdb64d977ace2c2d18efe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.349999
+      value: 11.3375
       objectReference: {fileID: 0}
     - target: {fileID: 5939789135932621384, guid: 4cb86a6e7abfdb64d977ace2c2d18efe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2892,6 +2952,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5939789135932621384, guid: 4cb86a6e7abfdb64d977ace2c2d18efe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135768423317257489, guid: 4cb86a6e7abfdb64d977ace2c2d18efe, type: 3}
+      propertyPath: CameraDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135768423317257489, guid: 4cb86a6e7abfdb64d977ace2c2d18efe, type: 3}
+      propertyPath: ShoulderOffset.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135768423317257489, guid: 4cb86a6e7abfdb64d977ace2c2d18efe, type: 3}
+      propertyPath: ShoulderOffset.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3044,6 +3116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_01_Atlased (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8184701373135732306, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8853573446925837544, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.5102
@@ -3182,7 +3258,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189705138384868576, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 361340965912846950, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3228,10 +3304,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7445771824555901862, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437836616721653833, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
+      propertyPath: dashForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437836616721653833, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
+      propertyPath: mouseSens
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8437836616721653833, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 1277469668}
+    - target: {fileID: 8437836616721653833, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
+      propertyPath: dashCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437836616721653833, guid: 53442bf83a5f6b74c9c24b9c0cbecfcc, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3301,6 +3397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Ramp_Triangular_02_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 8942236535134776314, guid: 7769930936361c243ac63013e7832426, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3322,6 +3422,10 @@ PrefabInstance:
     - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Cube_04_Atlased (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 16501862466018156, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 824564416582975958, guid: f91247a5263ec8b47a163ec4c3ce63e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3384,6 +3488,10 @@ PrefabInstance:
     - target: {fileID: 5167333816591036236, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
       propertyPath: m_Name
       value: START
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167333816591036236, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5547834505944233462, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3498,6 +3606,10 @@ PrefabInstance:
     - target: {fileID: 8942236535134776314, guid: 7769930936361c243ac63013e7832426, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Ramp_Triangular_02_Atlased (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942236535134776314, guid: 7769930936361c243ac63013e7832426, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3773,6 +3885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_02_Atlased (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5167333816591036236, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5547834505944233462, guid: a1e2bab9cb54d3c4596e853629b99f63, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2657
@@ -4045,6 +4161,10 @@ PrefabInstance:
     - target: {fileID: 8184701373135732306, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Platform_Square_01_Atlased
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184701373135732306, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8853573446925837544, guid: 7baea49ed23728c4e83e1042f5843dac, type: 3}
       propertyPath: m_LocalScale.x
@@ -4566,6 +4686,10 @@ PrefabInstance:
     - target: {fileID: 8942236535134776314, guid: 7769930936361c243ac63013e7832426, type: 3}
       propertyPath: m_Name
       value: Proto_Block_Ramp_Triangular_02_Atlased (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942236535134776314, guid: 7769930936361c243ac63013e7832426, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
