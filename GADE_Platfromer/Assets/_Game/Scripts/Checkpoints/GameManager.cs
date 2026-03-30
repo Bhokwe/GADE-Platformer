@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public int currentScore = 0;
     public int currentLives = 3;
+    public int maxLives = 3;
 
     //stack instansiation 
     private CheckpointStackADT checkpointStack = new CheckpointStackADT();
@@ -60,6 +61,15 @@ public class GameManager : MonoBehaviour
 
 
         }   
+    }
+    public void AddLife()
+    {
+        //lives to be added when the player has less than the max lives
+        if (currentLives < maxLives)
+        {
+            currentLives++;
+            Debug.Log("We are so back! You now have " + currentLives + " lives.");
+        }
     }
 
     public void AddScore(int points)

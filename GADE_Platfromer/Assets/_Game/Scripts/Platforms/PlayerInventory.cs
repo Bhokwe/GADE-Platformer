@@ -12,13 +12,13 @@ public class PlayerInventory : MonoBehaviour
     {
         if (fullPistolVisual != null) fullPistolVisual.SetActive(false);
     }
-    public void CollectPart(CollectibleItem.PartType part)
-    {
-        if (part == CollectibleItem.PartType.Slide) hasSlide = true;
-        if (part == CollectibleItem.PartType.Body) hasBody = true;
+    //public void CollectPart(CollectibleItem.PartType part)
+    //{
+    //    if (part == CollectibleItem.PartType.Slide) hasSlide = true;
+    //    if (part == CollectibleItem.PartType.Body) hasBody = true;
 
-        CheckForFullWeapon();
-    }
+    //    CheckForFullWeapon();
+    //}
 
     void CheckForFullWeapon()
     {
