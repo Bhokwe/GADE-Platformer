@@ -19,9 +19,9 @@ MonoBehaviour:
       better make sure to their package gets there boitjie! They do make it difficult
       but if you do anything... do not fall off the platform otherwise this will
       be you're last day... ON EARTH!
-  - Name: 
-    Icon: {fileID: 0}
-    messagetxt: 
-  - Name: 
-    Icon: {fileID: 0}
-    messagetxt: 
+  - Name: Meneer Jaco
+    Icon: {fileID: 21300000, guid: 372bf69522413994d8e1f4f16fae53ad, type: 3}
+    messagetxt: Anyways... Goodluck boitjie!
+  - Name: Meneer Jaco
+    Icon: {fileID: 21300000, guid: 372bf69522413994d8e1f4f16fae53ad, type: 3}
+    messagetxt: DO NOT DISSAPOINT OOM JACO!
