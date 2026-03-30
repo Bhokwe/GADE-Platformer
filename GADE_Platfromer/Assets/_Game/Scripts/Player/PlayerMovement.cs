@@ -58,8 +58,9 @@ public class PlayerController : MonoBehaviour
         dashAction = playerInput.actions.FindAction("Dash");
 
         //locking of cursor
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-        UnityEngine.Cursor.visible = false;
+        //UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        //UnityEngine.Cursor.visible = false;
+        // for the sake of the dialogue system, I have switched it off. 
 
     }
 
