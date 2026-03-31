@@ -36,6 +36,10 @@ public class DialogueManager : MonoBehaviour
             public void StartDialogue(DialogueAsset asset)
             {
                 messagePanel.SetActive(true); // shows UI panel
+                
+                Time.timeScale = 0f;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
 
                 while (!dialogueQueue.IsEmpty())
                 {
@@ -65,6 +69,9 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         messagePanel.SetActive(false); //Closes UI ... yoh bro... 
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 

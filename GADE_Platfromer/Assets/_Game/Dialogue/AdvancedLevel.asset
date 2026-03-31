@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9e9e205ae6a64429e8cc1982db7bf2, type: 3}
+  m_Name: AdvancedLevel
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
+  conversation:
+  - Name: Meneer Jaco
+    Icon: {fileID: 21300000, guid: 372bf69522413994d8e1f4f16fae53ad, type: 3}
+    messagetxt: 'Ja!!! You have the hang of this now! Things are going to ramp up
+      a bit now... '
+  - Name: Meneer Jaco
+    Icon: {fileID: 21300000, guid: 372bf69522413994d8e1f4f16fae53ad, type: 3}
+    messagetxt: Now there's roided up zombies over there that you will need to take
+      care of for me. He is my op's goon so is not make sure boitjie.
+  - Name: Meneer Jaco
+    Icon: {fileID: 21300000, guid: 372bf69522413994d8e1f4f16fae53ad, type: 3}
+    messagetxt: LAST TIME BOITJIE... DO NOT DISSAPOINT OOM JACO!
