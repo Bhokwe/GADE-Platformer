@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        currentScore = PlayerPrefs.GetInt("SavedScore", 0);
+        currentLives = PlayerPrefs.GetInt("SavedLives", 3);
+
         SaveState(player.transform.position);
         
     }
@@ -76,6 +80,15 @@ public class GameManager : MonoBehaviour
     {
         currentScore += points;
         Debug.Log("Score added! Current score: " + currentScore);
+    }
+
+    public void CompleteLevel()
+    {
+        PlayerPrefs.SetInt("SavedScore", currentScore);
+        PlayerPrefs.SetInt("SavedLives", currentLives);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 public class StickToPlayer : MonoBehaviour
 {
 
-    private void OntriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         //checks if game object has player tag
         if (other.gameObject.CompareTag("Player"))
