@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6528273963193964983}
   - component: {fileID: 7651489150706530680}
   - component: {fileID: 5521898619900778379}
-  - component: {fileID: 5348220220731429938}
   - component: {fileID: 2661210537200141435}
   - component: {fileID: 5291705736852247759}
+  - component: {fileID: 5938227136121665886}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -141,25 +141,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5348220220731429938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523572239166509351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbcf0172ef34e6443a736f0194b8beac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
-  waypointObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!54 &2661210537200141435
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -202,6 +183,19 @@ MonoBehaviour:
   moveSpeed: 3
   enemySize: {x: 0, y: 0, z: 0}
   enemyMaterial: {fileID: 2100000, guid: 45f0e92af38a14e4280fdcab3cb70ead, type: 2}
+--- !u!114 &5938227136121665886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523572239166509351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbcf0172ef34e6443a736f0194b8beac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
+  waypointObjects: []
 --- !u!1001 &4213495704223525154
 PrefabInstance:
   m_ObjectHideFlags: 0

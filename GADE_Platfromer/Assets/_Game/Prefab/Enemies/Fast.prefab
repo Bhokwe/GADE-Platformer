@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7235404860182057720}
   - component: {fileID: 2246315120335714867}
   - component: {fileID: 9180104282983308211}
+  - component: {fileID: -5806286768151376587}
   m_Layer: 0
   m_Name: Fast
   m_TagString: Untagged
@@ -126,18 +127,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427478895930543920}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbcf0172ef34e6443a736f0194b8beac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
-  waypointObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypointObjects: []
 --- !u!195 &7235404860182057720
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -202,6 +197,19 @@ MonoBehaviour:
   moveSpeed: 6
   enemySize: {x: 0, y: 0, z: 0}
   enemyMaterial: {fileID: 2100000, guid: fd2d9928d2b385341b5f56f889e63bfb, type: 2}
+--- !u!114 &-5806286768151376587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427478895930543920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbcf0172ef34e6443a736f0194b8beac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
+  waypointObjects: []
 --- !u!1001 &7666923874613495565
 PrefabInstance:
   m_ObjectHideFlags: 0

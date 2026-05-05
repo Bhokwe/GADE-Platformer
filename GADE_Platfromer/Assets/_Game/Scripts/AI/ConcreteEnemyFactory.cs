@@ -10,6 +10,9 @@ public class ConcreteEnemyFactory : AbstractEnemyFactory
     public Material fastEnemyMaterial;
     public Material tankEnemyMaterial; 
 
+    [Header("Level Data")]
+    public Transform[] waypointObjects;
+
     public override BaseEnemy CreateEnemy(string enemyType, Vector3 spawnPosition)
     {
         GameObject spawnedEnemy = null;
@@ -38,6 +41,15 @@ public class ConcreteEnemyFactory : AbstractEnemyFactory
         else
         {
             Debug.LogWarning("Factory can't build this enemy type: " + enemyType);
+        }
+
+        if (spawnedEnemy!= null)
+        {
+            EnemyPatrol patrolScript = spawnedEnemy.GetComponent<EnemyPatrol>();
+            if (patrolScript != null)
+            {
+                patrolScript.waypointObjects = waypointObjects;
+            }
         }
 
         return enemyScript;
