@@ -47,5 +47,12 @@ public class CheckpointStackADT
         return stackMemory.Count == 0;
     }
 
-  
+    //empties the underlying list so we can start fresh in a new level
+    public void ClearStack()
+    {
+        stackMemory.Clear();
+        Debug.Log("Checkpoint Stack has been cleared for the new level!");
+    }
+
+
 }

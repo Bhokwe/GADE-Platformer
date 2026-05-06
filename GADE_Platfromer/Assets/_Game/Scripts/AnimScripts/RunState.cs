@@ -1,24 +1,23 @@
 using UnityEngine;
 
-public class IdleState : IPlayerState
+public class RunState : IPlayerState
 {
     public void EnterState(PlayerController player)
     {
-        if (player.animator != null) player.animator.CrossFade("Idle", 0.1f);
+        // Triggered when dashing. Make sure "Run" matches your Animator!
+        if (player.animator != null) player.animator.CrossFade("Run", 0.1f);
     }
 
     public void UpdateState(PlayerController player)
     {
-        // If we fall or jump
         if (!player.isGrounded)
         {
             player.ChangeState(new JumpState());
             return;
         }
 
-        // Check if we started moving
-        Vector2 input = player.moveAction.ReadValue<Vector2>();
-        if (input.magnitude > 0.1f)
+        // Go back to walk when dash is over
+        if (!player.isDashing)
         {
             player.ChangeState(new WalkState());
         }

@@ -14,10 +14,20 @@ public class GameManager : MonoBehaviour
     //stack instansiation 
     private CheckpointStackADT checkpointStack = new CheckpointStackADT();
 
-    private void Awake()
+    public int keysCollected = 0;
+    public int keysRequired;
+
+    void Awake()
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
@@ -89,6 +99,16 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    //called when we load into a brand new level
+    public void ResetCheckpointsForNewLevel(Vector3 newSpawnPosition)
+    {
+        //delete all the old Level 1 checkpoints
+        checkpointStack.ClearStack();
+
+        //push the very first spawn point for Level 2 so the stack isn't empty!
+        SaveState(newSpawnPosition);
     }
 }
 

@@ -1,31 +1,32 @@
- using UnityEngine;
+using NUnit.Framework.Interfaces;
+using UnityEngine;
 
 public class WalkState : IPlayerState
 {
-    public void EnterState(PlayerMove player)
+    public void EnterState(PlayerController player)
     {
-        
-        player.animator.CrossFade("", 0.1f);
+        // Make sure "Walk" matches the exact name in your Animator!
+        if (player.animator != null) player.animator.CrossFade("Walk", 0.1f);
     }
 
-    public void UpdateState(PlayerMove player)
+    public void UpdateState(PlayerController player)
     {
-        if (Input.GetButtonDown("Jump") && player.isGrounded)
+        if (!player.isGrounded)
         {
             player.ChangeState(new JumpState());
             return;
         }
-        //Vector3 moveInput = player.GetMovementInput();
-        Vector3 horizontalVelocity = new Vector3(player.rb.linearVelocity.x, 0, player.rb.linearVelocity.z);
 
-        if (horizontalVelocity.magnitude <= 0.1f)
+        if (player.isDashing)
+        {
+            player.ChangeState(new RunState());
+            return;
+        }
+
+        Vector2 input = player.moveAction.ReadValue<Vector2>();
+        if (input.magnitude <= 0.1f)
         {
             player.ChangeState(new IdleState());
         }
-       /* if (moveInput.magnitude <= 0.1f) 
-        {
-            player.ChangeState(new IdleState());
-        }*/
-              
     }
 }

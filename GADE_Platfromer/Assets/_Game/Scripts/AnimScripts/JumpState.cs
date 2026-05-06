@@ -2,26 +2,25 @@ using UnityEngine;
 
 public class JumpState : IPlayerState
 {
-    public void EnterState(PlayerMove player)
+    public void EnterState(PlayerController player)
     {
-        player.animator.CrossFade("Jump", 0.1f);
-
-        Rigidbody rb = player.GetComponent<Rigidbody>();
-        float jumpForce = 7f;
-
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        if (player.animator != null) player.animator.CrossFade("Jump", 0.1f);
     }
 
-    public void UpdateState(PlayerMove player)
+    public void UpdateState(PlayerController player)
     {
-        Rigidbody rb = player.GetComponent<Rigidbody>();
-
-        player.ChangeState(new IdleState());
-
-        if (player.isGrounded && rb. linearVelocity.y <= 0.1f)
+        // If we land, decide whether to walk or idle
+        if (player.isGrounded && player.rb.linearVelocity.y <= 0.1f)
         {
-            player.ChangeState(new IdleState());
+            Vector2 input = player.moveAction.ReadValue<Vector2>();
+            if (input.magnitude > 0.1f)
+            {
+                player.ChangeState(new WalkState());
+            }
+            else
+            {
+                player.ChangeState(new IdleState());
+            }
         }
     }
 }
