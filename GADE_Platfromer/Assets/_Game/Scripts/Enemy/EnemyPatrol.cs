@@ -8,6 +8,8 @@ public class EnemyPatrol : MonoBehaviour
     private Node currentNode;
     private NavMeshAgent agent;
 
+    public Animator animator;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -51,6 +53,17 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (animator != null)
+        {
+            //calculates zombies speed
+            float currentSpeed = agent.velocity.magnitude;
+
+            // send that speed number to controller's "speed" parameter
+            animator.SetFloat("Speed", currentSpeed);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         //Need to check the currentNode is not null

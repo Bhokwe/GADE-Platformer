@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+        if (animator != null) animator.SetBool ("isGrounded", isGrounded);
+
         PlayerLook();
 
         if (isGrounded && !isDashing)
@@ -111,6 +113,12 @@ public class PlayerController : MonoBehaviour
     void PlayerMovement()
     {
         Vector2 inputDirection = moveAction.ReadValue<Vector2>();
+
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", inputDirection.magnitude);
+        }
+
         Vector3 moveDirection = (transform.forward * inputDirection.y + transform.right * inputDirection.x).normalized;
 
         if (inputDirection.magnitude >= 0.1f)

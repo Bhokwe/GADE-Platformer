@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
   waypointObjects: []
+  animator: {fileID: 3939044677120932271}
 --- !u!1001 &4213495704223525154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +254,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 887892bfa2741064a9f1a642a0522be9, type: 3}
+--- !u!95 &3939044677120932271 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 924104645172727949, guid: 887892bfa2741064a9f1a642a0522be9, type: 3}
+  m_PrefabInstance: {fileID: 4213495704223525154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6938464377763947477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6499600894788815607, guid: 887892bfa2741064a9f1a642a0522be9, type: 3}
