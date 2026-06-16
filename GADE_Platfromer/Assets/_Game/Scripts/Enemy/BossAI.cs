@@ -15,26 +15,44 @@ public class BossAI : MonoBehaviour
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-        if (startingWaypoint != null)
+        BuildGraph();
+
+        // Fallback safety check: if startingWaypoint wasn't set, default to the first node created
+        if (currentNode == null && patrolGraph.Nodes.Count > 0)
         {
-            //agent.Warp(startingWaypoint.transform.position);
+            currentNode = patrolGraph.Nodes[0];
         }
 
-        BuildGraph();
-        GoToNextWaypoint();
+        if (currentNode != null)
+        {
+            // Snap to NavMesh to avoid the "floating" bug we had in Part 2
+            UnityEngine.AI.NavMeshHit hit;
+            if (UnityEngine.AI.NavMesh.SamplePosition(transform.position, out hit, 2.0f, UnityEngine.AI.NavMesh.AllAreas))
+            {
+                agent.Warp(hit.position);
+            }
+
+            // Head to the very first node!
+            agent.SetDestination(currentNode.Data.position);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if (animator != null)
-        { 
+        {
             animator.SetFloat("Speed", agent.velocity.magnitude);
         }
 
+        // Check if we arrived at the current waypoint
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            GoToNextWaypoint();
+            // Ensure the agent actually stopped moving
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                GoToNextWaypoint();
+            }
         }
     }
 
@@ -51,6 +69,8 @@ public class BossAI : MonoBehaviour
 
             if (wp == startingWaypoint) currentNode = node;
         }
+
+        // Build the connecting edges based on the Waypoint's nextWaypoints list
         foreach (Waypoint wp in allWaypoints)
         {
             foreach (Waypoint next in wp.nextWaypoints)
@@ -67,10 +87,13 @@ public class BossAI : MonoBehaviour
     {
         if (currentNode == null || currentNode.Neighbours.Count == 0) return;
 
-        int randomIndex = Random.Range(0, currentNode.Neighbours.Count);
-        GraphNode<Transform> nextNode = currentNode.Neighbours[randomIndex];
+        
+        GraphNode<Transform> nextNode = currentNode.GetRandomNeighbour();
 
-        agent.SetDestination(nextNode.Data.position);
-        currentNode = nextNode;
+        if (nextNode != null)
+        {
+            agent.SetDestination(nextNode.Data.position);
+            currentNode = nextNode;
+        }
     }
 }
