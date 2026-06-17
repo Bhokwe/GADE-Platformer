@@ -133,6 +133,8 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        SFXManager.Instance.PlaySFX("JUMP");
+
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }

@@ -40,7 +40,14 @@ public class EnemyPatrol : MonoBehaviour
 
         currentNode = patrolPath.head;
 
-        if (currentNode != null)
+        UnityEngine.AI.NavMeshHit hit;
+
+        if (UnityEngine.AI.NavMesh.SamplePosition(transform.position, out hit, 2.0f, UnityEngine.AI.NavMesh.AllAreas))
+        {
+            agent.Warp(hit.position);
+        }
+
+        if (currentNode != null && agent.isOnNavMesh) 
         {
             agent.SetDestination(currentNode.waypoint.position);
         }
@@ -48,6 +55,10 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
+        //
+        if (!agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
+
+
         // 1. Check if we actually have a node we are moving towards
         if (currentNode != null)
         {
