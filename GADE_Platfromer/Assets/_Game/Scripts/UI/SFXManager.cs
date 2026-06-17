@@ -16,7 +16,7 @@ public class SFXManager : MonoBehaviour
     [Range(0f, 1f)]
     public float musicVolume = 0.5f;
 
-    [Header("5 Sounds")]
+    [Header("Sound Library (loaded into CustomHashMap on Awake)")]
     public SoundEntry[] soundLibrary;
 
     private CustomHashMap<string, AudioClip> sfxMap;

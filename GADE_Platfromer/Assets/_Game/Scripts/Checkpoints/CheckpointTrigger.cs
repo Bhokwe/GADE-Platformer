@@ -6,16 +6,28 @@ public class CheckpointTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !isActivated)
+        if (!other.CompareTag("Player") || isActivated)
         {
-            isActivated = true;
+            return;
+        }
 
-            Debug.Log("Player successfully triggered: " + gameObject.name);
+        if (GameManager.instance == null)
+        {
+            Debug.LogError("Checkpoint cannot save: GameManager is missing in this scene.");
+            return;
+        }
 
-            Vector3 safeSpawn = transform.position + new Vector3(0, 1, 0); // adjusted the spawn position to be slightly above the checkpoint
-            GameManager.instance.SaveState(safeSpawn);
+        isActivated = true;
 
-            GetComponent<Renderer>().material.color = Color.green; // change the checkpoint color to green to indicate it's activated
+        Debug.Log("Player successfully triggered: " + gameObject.name);
+
+        Vector3 safeSpawn = transform.position + new Vector3(0, 1, 0);
+        GameManager.instance.SaveState(safeSpawn);
+
+        Renderer checkpointRenderer = GetComponent<Renderer>();
+        if (checkpointRenderer != null)
+        {
+            checkpointRenderer.material.color = Color.green;
         }
     }
 }

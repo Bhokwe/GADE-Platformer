@@ -17,11 +17,14 @@ public class CollectibleItem : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        
+
         if (other.CompareTag("Player"))
         {
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlaySFX("COIN");
+            }
 
-            //PlayerInventory inventory = other.GetComponent<PlayerInventory>();
             GameManager.instance.AddScore(pointValue);
 
             Debug.Log("We got coins my gee! Total is: " + GameManager.instance.currentScore);

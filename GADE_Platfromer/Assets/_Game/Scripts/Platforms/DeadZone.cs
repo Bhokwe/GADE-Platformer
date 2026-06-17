@@ -1,22 +1,25 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; //Reloads scenes
 
 public class DeadZone : MonoBehaviour
 {
-    private void OnTriggerEnter (Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
+        {
+            return;
+        }
+
+        if (GameManager.instance == null)
+        {
+            Debug.LogError("DeadZone triggered but GameManager is missing.");
+            return;
+        }
+
+        if (SFXManager.Instance != null)
         {
             SFXManager.Instance.PlaySFX("DIE");
-            //Checks if player has fallen into dead zone
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-            Invoke("ResetLevel", 1f);
         }
-    }
 
-    private void ResetLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.RespawnPlayer();
     }
 }

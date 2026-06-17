@@ -14,13 +14,18 @@ public class LifePickup : MonoBehaviour
         {
             if (GameManager.instance.currentLives < GameManager.instance.maxLives)
             {
+                if (SFXManager.Instance != null)
+                {
+                    SFXManager.Instance.PlaySFX("LIFE");
+                }
+
                 GameManager.instance.AddLife();
                 Debug.Log("Player picked up a life! Current lives: " + GameManager.instance.currentLives);
                 Destroy(gameObject);
 
 
             }
-            else 
+            else
             {
                 Debug.Log("You are life maxxing brudda! You are all good.");
             }

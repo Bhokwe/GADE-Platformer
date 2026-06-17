@@ -1,18 +1,36 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyPatrol : MonoBehaviour
 {
     public Transform[] waypointObjects;
+
     private OwnLinkedList patrolPath;
     private Node currentNode;
     private NavMeshAgent agent;
+    private bool isInitialized;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        InitializePatrol();
+    }
 
-        // Fetch waypoints from the Factory if empty
+    public void InitializePatrol()
+    {
+        if (isInitialized)
+        {
+            ResumePatrol();
+            return;
+        }
+
+        agent = GetComponent<NavMeshAgent>();
+        if (agent == null)
+        {
+            Debug.LogError("EnemyPatrol requires a NavMeshAgent on " + gameObject.name);
+            return;
+        }
+
         if (waypointObjects == null || waypointObjects.Length == 0 || waypointObjects[0] == null)
         {
             ConcreteEnemyFactory factory = FindFirstObjectByType<ConcreteEnemyFactory>();
@@ -24,7 +42,7 @@ public class EnemyPatrol : MonoBehaviour
 
         if (waypointObjects == null || waypointObjects.Length == 0)
         {
-            Debug.LogError("No waypoints assigned to the EnemyPatrol script: " + gameObject.name);
+            Debug.LogError("No waypoints assigned to EnemyPatrol on " + gameObject.name);
             return;
         }
 
@@ -39,55 +57,65 @@ public class EnemyPatrol : MonoBehaviour
         }
 
         currentNode = patrolPath.head;
+        isInitialized = true;
+        ResumePatrol();
+    }
 
-        UnityEngine.AI.NavMeshHit hit;
+    private void ResumePatrol()
+    {
+        if (agent == null || currentNode == null)
+        {
+            return;
+        }
 
-        if (UnityEngine.AI.NavMesh.SamplePosition(transform.position, out hit, 2.0f, UnityEngine.AI.NavMesh.AllAreas))
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
         {
             agent.Warp(hit.position);
         }
 
-        if (currentNode != null && agent.isOnNavMesh) 
+        if (agent.isOnNavMesh)
         {
+            agent.isStopped = false;
             agent.SetDestination(currentNode.waypoint.position);
+        }
+        else
+        {
+            Debug.LogWarning("EnemyPatrol agent is not on NavMesh: " + gameObject.name);
         }
     }
 
     void Update()
     {
-        //
-        if (!agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
-
-
-        // 1. Check if we actually have a node we are moving towards
-        if (currentNode != null)
+        if (agent == null || !agent.isActiveAndEnabled || !agent.isOnNavMesh)
         {
-            // 2. Check if the agent is close to its destination (and not still calculating a path)
-            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            return;
+        }
+
+        if (currentNode == null)
+        {
+            return;
+        }
+
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
-                // 3. Make sure the agent has actually stopped moving
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                {
-                    MoveToNextWaypoint();
-                }
+                MoveToNextWaypoint();
             }
         }
     }
 
     void MoveToNextWaypoint()
     {
-        // Move to the next node in the linked list
         currentNode = currentNode.next;
 
-        // Loop back to the start if we reach the end of the list. 
-        // This guarantees they complete "multiple laps" 
         if (currentNode == null)
         {
             currentNode = patrolPath.head;
         }
 
-        // Set the new destination
-        if (currentNode != null)
+        if (currentNode != null && agent.isOnNavMesh)
         {
             agent.SetDestination(currentNode.waypoint.position);
         }

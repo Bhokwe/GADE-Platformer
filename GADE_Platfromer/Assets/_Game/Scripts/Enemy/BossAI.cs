@@ -40,15 +40,18 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (agent == null || !agent.isActiveAndEnabled || !agent.isOnNavMesh)
+        {
+            return;
+        }
+
         if (animator != null)
         {
             animator.SetFloat("Speed", agent.velocity.magnitude);
         }
 
-        // Check if we arrived at the current waypoint
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            // Ensure the agent actually stopped moving
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
                 GoToNextWaypoint();
@@ -87,7 +90,7 @@ public class BossAI : MonoBehaviour
     {
         if (currentNode == null || currentNode.Neighbours.Count == 0) return;
 
-        
+
         GraphNode<Transform> nextNode = currentNode.GetRandomNeighbour();
 
         if (nextNode != null)

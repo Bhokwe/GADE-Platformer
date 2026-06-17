@@ -1,13 +1,19 @@
 using UnityEngine;
 
-public class PitfallTrigger : MonoBehaviour
+public class FallingTrigger : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        // is the player cooked?
         if (other.CompareTag("Player"))
         {
-            // trigger the respawn process using peek state from the GameManager
+            Debug.Log("Player fell out of bounds!");
+
+            if (GameManager.instance == null)
+            {
+                Debug.LogError("FallingTrigger fired but GameManager is missing.");
+                return;
+            }
+
             GameManager.instance.RespawnPlayer();
         }
     }

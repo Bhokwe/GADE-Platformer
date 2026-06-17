@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    
-    public PlayerInput playerInput; 
+
+    public PlayerInput playerInput;
     public InputAction moveAction;
     public InputAction jumpAction;
     public InputAction lookAction;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump Settings")]
     public float jumpForce;
-    public bool canDoubleJump; 
+    public bool canDoubleJump;
 
     [Header("Ground Check Settings")]
     public Transform groundCheck;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public float dashForce;
     public float dashDuration;
     public float dashCooldown;
-    public bool isDashing; 
+    public bool isDashing;
     float dashTimeTracker;
     float dashCooldownTracker;
 
@@ -58,9 +58,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (groundCheck != null)
+        {
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        }
+        else
+        {
+            isGrounded = false;
+        }
 
-        if (animator != null) animator.SetBool ("isGrounded", isGrounded);
+        if (animator != null) animator.SetBool("isGrounded", isGrounded);
 
         PlayerLook();
 
@@ -112,6 +119,11 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
+        if (rb == null || rb.isKinematic)
+        {
+            return;
+        }
+
         Vector2 inputDirection = moveAction.ReadValue<Vector2>();
 
         if (animator != null)
