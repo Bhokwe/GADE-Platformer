@@ -2649,7 +2649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleMover
   shouldMove: 1
   moveDistance: {x: 5, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.5
   shouldRotate: 0
   rotationSpeed: {x: 0, y: 50, z: 0}
 --- !u!114 &718848090
@@ -10579,6 +10579,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 962198812756437068, guid: 8244299af574f4345a6027f12e6ea00b, type: 3}
+      propertyPath: soundLibrary.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e65e0a542fa1ca4f8b6600dfbdbbb8c, type: 3}
+    - target: {fileID: 962198812756437068, guid: 8244299af574f4345a6027f12e6ea00b, type: 3}
+      propertyPath: soundLibrary.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e99b92e51afa2a449fba0e18382bd80, type: 3}
+    - target: {fileID: 962198812756437068, guid: 8244299af574f4345a6027f12e6ea00b, type: 3}
+      propertyPath: soundLibrary.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8da609953843614a858f9ad638d8c80, type: 3}
+    - target: {fileID: 962198812756437068, guid: 8244299af574f4345a6027f12e6ea00b, type: 3}
+      propertyPath: soundLibrary.Array.data[3].soundName
+      value: LIFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 962198812756437068, guid: 8244299af574f4345a6027f12e6ea00b, type: 3}
+      propertyPath: soundLibrary.Array.data[4].soundName
+      value: COIN
+      objectReference: {fileID: 0}
+    - target: {fileID: 962198812756437068, guid: 8244299af574f4345a6027f12e6ea00b, type: 3}
+      propertyPath: soundLibrary.Array.data[5].soundName
+      value: DOOR
+      objectReference: {fileID: 0}
     - target: {fileID: 7938786685307171754, guid: 8244299af574f4345a6027f12e6ea00b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.901
